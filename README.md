@@ -54,7 +54,7 @@ docker build -t worker ./worker
 docker pull redis
 docker pull postgres
 
-🟢 Step 6: Create Docker Containers & Network
+🟢 Step 6: Create Docker Containers & Network.
 Run the containers manually as below:
 # Redis container
 docker run -itd --name=redis -h=redis redis
