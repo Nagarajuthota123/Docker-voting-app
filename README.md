@@ -7,6 +7,7 @@ This project demonstrates a containerized voting application built using Python,
 GitHub: [https://github.com/mohammedashiqu/docker-voting-app-new](https://github.com/mohammedashiqu/docker-voting-app-new)
 
 ## 📁 Folder Structure.
+
 ├── vote/ # Flask Voting app (Python)
 ├── result/ # Result app (Node.js)
 ├── worker/ # Worker service (.NET Core)
@@ -24,17 +25,18 @@ This project includes the following services:
 
 ## ⚙️ Step-by-Step Deployment Guide
 
-### 🟢 Step 1: Launch EC2 Instance
+🟢 Step 1: Launch EC2 Instance.
 
 - Create an **Amazon Linux 2** or **Ubuntu EC2 instance**
 - Configure **Security Group** with inbound rules:
   - TCP: `20`, `1000`, `1001`, `2345`, `443` (custom ports for app access)
 
-### 🟢 Step 2: Connect to EC2 Instance
+🟢 Step 2: Connect to EC2 Instance.
+
 Use **MobaXterm** or any SSH terminal to connect:
 ssh -i "your-key.pem" ec2-user@your-ec2-public-ip
 
-🟢 Step 3: Install Git and Clone the Repository
+🟢 Step 3: Install Git and Clone the Repository.
 sudo yum install git -y       
 git clone https://github.com/mohammedashiqu/docker-voting-app-new.git
 cd docker-voting-app-new/
@@ -82,3 +84,4 @@ docker run -itd --name=worker \
   --link db:db \
   worker
 ⚠️ Note: If using Docker networks instead of --link, you can create a custom bridge network and attach all containers to it.
+
