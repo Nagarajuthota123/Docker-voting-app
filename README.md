@@ -37,16 +37,19 @@ Use **MobaXterm** or any SSH terminal to connect: \
 ssh -i "your-key.pem" ec2-user@your-ec2-public-ip 
 
 Step 3: Install Git and Clone the Repository. \
+
 sudo yum install git -y        
 git clone https://github.com/mohammedashiqu/docker-voting-app-new.git \
 cd docker-voting-app-new
 
 Step 4: Install Docker and Start Docker Service \
+
 sudo yum install docker -y \
 sudo service docker start \
 sudo usermod -aG docker ec2-user 
 
 Step 5: Build Docker Images \
+
 Each directory has its own Dockerfile. Run the following commands inside the root repo directory: \
 docker build -t voting-app ./vote \
 docker build -t result-app ./result \
@@ -55,6 +58,7 @@ docker pull redis \
 docker pull postgres 
 
 Step 6: Create Docker Containers & Network. \
+
 Run the containers manually as below: 
 # Redis container
 docker run -itd --name=redis -h=redis redis
