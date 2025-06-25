@@ -27,19 +27,19 @@ This project includes the following services:
 
 Step 1: Launch EC2 Instance.
 
-- Create an **Amazon Linux 2** or **Ubuntu EC2 instance**
-- Configure **Security Group** with inbound rules:
-- TCP: `20`, `1000`, `1001`, `2345`, `443` (custom ports for app access)
+- Create an **Amazon Linux 2** \
+- Configure **Security Group** with inbound rules: \
+- TCP: `20`, `1000`, `1001`, `2345`, `443` (custom ports for app access) \
 
 Step 2: Connect to EC2 Instance.
 
-Use **MobaXterm** or any SSH terminal to connect:
-ssh -i "your-key.pem" ec2-user@your-ec2-public-ip
+Use **MobaXterm** or any SSH terminal to connect: \
+ssh -i "your-key.pem" ec2-user@your-ec2-public-ip \
 
-Step 3: Install Git and Clone the Repository.
-sudo yum install git -y       
-git clone https://github.com/mohammedashiqu/docker-voting-app-new.git
-cd docker-voting-app-new/
+Step 3: Install Git and Clone the Repository. \
+sudo yum install git -y \       
+git clone https://github.com/mohammedashiqu/docker-voting-app-new.git \
+cd docker-voting-app-new/ \
 
 Step 4: Install Docker and Start Docker Service
 sudo yum install docker -y
