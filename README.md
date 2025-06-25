@@ -41,47 +41,47 @@ sudo yum install git -y \
 git clone https://github.com/mohammedashiqu/docker-voting-app-new.git \
 cd docker-voting-app-new/ \
 
-Step 4: Install Docker and Start Docker Service
-sudo yum install docker -y
-sudo service docker start
-sudo usermod -aG docker ec2-user
+Step 4: Install Docker and Start Docker Service \
+sudo yum install docker -y \
+sudo service docker start \
+sudo usermod -aG docker ec2-user \
 
-Step 5: Build Docker Images
-Each directory has its own Dockerfile. Run the following commands inside the root repo directory:
-docker build -t voting-app ./vote
-docker build -t result-app ./result
-docker build -t worker ./worker
-docker pull redis
-docker pull postgres
+Step 5: Build Docker Images \
+Each directory has its own Dockerfile. Run the following commands inside the root repo directory: \
+docker build -t voting-app ./vote \
+docker build -t result-app ./result \
+docker build -t worker ./worker \
+docker pull redis \
+docker pull postgres \
 
-Step 6: Create Docker Containers & Network.
-Run the containers manually as below:
+Step 6: Create Docker Containers & Network. \
+Run the containers manually as below: \
 # Redis container
 docker run -itd --name=redis -h=redis redis
 
 # PostgreSQL container
-docker run -itd --name=db -h=db \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -p 2345:5432 \
+docker run -itd --name=db -h=db 
+  -e POSTGRES_USER=postgres 
+  -e POSTGRES_PASSWORD=postgres 
+  -p 2345:5432 
   postgres
 
 # Result app container (Node.js)
-docker run -itd --name=result \
-  --link db:db \
-  -p 1001:80 \
+docker run -itd --name=result 
+  --link db:db 
+  -p 1001:80 
   result-app
 
 # Voting app container (Flask)
-docker run -itd --name=voting-app \
-  --link redis:redis \
-  -p 1000:80 \
+docker run -itd --name=voting-app 
+  --link redis:redis 
+  -p 1000:80 
   voting-app
 
 # Worker container (.NET)
-docker run -itd --name=worker \
-  --link redis:redis \
-  --link db:db \
+docker run -itd --name=worker 
+  --link redis:redis 
+  --link db:db 
   worker
 ⚠️ Note: If using Docker networks instead of --link, you can create a custom bridge network and attach all containers to it.
 
