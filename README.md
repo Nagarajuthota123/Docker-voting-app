@@ -37,7 +37,7 @@ Use **MobaXterm** or any SSH terminal to connect: \
 ssh -i "your-key.pem" ec2-user@your-ec2-public-ip 
 
 Step 3: Install Git and Clone the Repository. \
-sudo yum install git -y \       
+sudo yum install git -y        
 git clone https://github.com/mohammedashiqu/docker-voting-app-new.git \
 cd docker-voting-app-new
 
